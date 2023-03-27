@@ -1,0 +1,111 @@
+<!--  ./views/index.handlebars -->
+<div class="container py-5">
+
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">新增餐廳<i class="fas fa-key"></i></h5>
+          <hr>
+          <form method="POST" action="/restaurants">
+
+            <div class="row g-2 mb-3">
+              <label for="name" class="col-md-4 col-form-label">
+                餐廳名稱
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="name" class="form-control" id="name" min="1">
+                <small class="text-muted form-text">長度需大於一個字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="name_en" class="col-md-4 col-form-label">
+                餐廳英文名稱
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="name_en" class="form-control" id="name_en" min="1">
+                <small class="text-muted form-text">長度需大於一個字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="category" class="col-md-4 col-form-label">
+                類別
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="category" class="form-control" id="category" min="1">
+                <small class="text-muted form-text">長度需大於一個字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="image" class="col-md-4 col-form-label">
+                圖片位址
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="image" class="form-control" id="image" min="4">
+                <small class="text-muted form-text">需要有完整位址</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="location" class="col-md-4 col-form-label">
+                地址
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="location" class="form-control" id="location" min="1">
+                <small class="text-muted form-text">長度需大於一個字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="phone" class="col-md-4 col-form-label">
+                電話
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="phone" class="form-control" id="phone" min="1">
+                <small class="text-muted form-text">長度需大於一個數字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="google_map" class="col-md-4 col-form-label">
+                Google Map
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="google_map" class="form-control" id="google_map" min="4">
+                <small class="text-muted form-text">需要有完整網址</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="rating" class="col-md-4 col-form-label">
+                評分
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="rating" class="form-control" id="rating" min="1">
+                <small class="text-muted form-text">長度需大於一個數字</small>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <label for="description" class="col-md-4 col-form-label">
+                詳細敘述
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="description" class="form-control" id="description" min="1">
+                <small class="text-muted form-text">長度需大於一個字</small>
+              </div>
+            </div>
+
+
+
+
+            <button class="btn btn-success" type="submit">新增</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

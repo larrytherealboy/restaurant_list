@@ -1,7 +1,9 @@
 // require package
 const express = require('express')
 const mongoose = require('mongoose') // 載入 mongoose
-// const restaurantList = require('./restaurant.json')
+const bodyParser = require('body-parser')
+
+const Restaurant = require('./models/restaurant')
 
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== 'production') {
@@ -27,6 +29,7 @@ db.once('open', () => {
 
 // require express-handlebars here
 const exphbs = require('express-handlebars')
+const restaurant = require('./models/restaurant')
 
 // setting template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -34,23 +37,92 @@ app.set('view engine', 'handlebars')
 
 // setting static files
 app.use(express.static('public'))
+// setting body-parser
+app.use(express.urlencoded({ extended: true }))
 
 // setting roate
+// 瀏覽全部所有餐廳
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
+// 瀏覽一家餐廳的詳細資訊
 app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id === Number(req.params.restaurant_id))
-  res.render('show', { restaurant: restaurant })
+  const id = req.params.restaurant_id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
 
+// 新增一家餐廳
+app.get('/restaurants', (req, res) => {
+  res.render('add')
+})
+
+app.post('/restaurants', (req, res) => {
+  console.log(req.body)
+  const name = req.body.name
+  const name_en = req.body.name_en
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const phone = req.body.phone
+  const google_map = req.body.google_map
+  const rating = req.body.rating
+  const description = req.body.description
+  return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description }) 
+    .then(() => res.redirect('/')) 
+    .catch(error => console.log(error))
+})
+
+// 修改一家餐廳的資訊
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant.name = req.body.name
+      restaurant.name_en = req.body.name_en
+      restaurant.category = req.body.category
+      restaurant.image = req.body.image
+      restaurant.location = req.body.location
+      restaurant.phone = Number(req.body.phone)
+      restaurant.google_map = req.body.google_map
+      restaurant.rating = Number(req.body.rating)
+      restaurant.description = req.body.description
+      return restaurant.save()
+    })
+    .then(() => {
+      res.redirect(`/restaurants/${id}`)
+    })
+    .catch(error => console.log(error))
+})
+
+// 刪除一家餐廳
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+// 查詢一家餐廳
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.toLowerCase()
-  const restaurants = restaurantList.results.filter((restaurant) => {
-    return restaurant.name.includes(keyword) || restaurant.category.includes(keyword)
-  })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
+  // const restaurants = Restaurant.find().lean().filter((restaurant) => {
+  //   return restaurant.name.includes(keyword) || restaurant.category.includes(keyword)
+  // })
 })
 
 // start and listening express server

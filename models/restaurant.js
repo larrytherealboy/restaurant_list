@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const restaurantSchema = new Schema ({
   id: {
     type: Number, 
-    required: true 
+    required: false 
   },
   name: {
     type: String, 
@@ -27,7 +27,7 @@ const restaurantSchema = new Schema ({
     required: true
   },
   phone: {
-    type: String,
+    type: Number,
     required: true
   },
   google_map: {
