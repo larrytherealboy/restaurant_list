@@ -74,8 +74,8 @@ app.post('/restaurants', (req, res) => {
   const google_map = req.body.google_map
   const rating = req.body.rating
   const description = req.body.description
-  return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description }) 
-    .then(() => res.redirect('/')) 
+  return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description })
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
@@ -120,9 +120,14 @@ app.post('/restaurants/:id/delete', (req, res) => {
 // 查詢一家餐廳
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.toLowerCase()
-  // const restaurants = Restaurant.find().lean().filter((restaurant) => {
-  //   return restaurant.name.includes(keyword) || restaurant.category.includes(keyword)
-  // })
+  Restaurant.find()
+    .lean()
+    .then((restaurants) => {
+      const filterRestaurants = restaurants.filter(restaurant => restaurant.name.includes(keyword) || restaurant.category.includes(keyword))
+
+      res.render('index', { restaurants: filterRestaurants })
+    })
+    .catch(error => console.log(error))
 })
 
 // start and listening express server
