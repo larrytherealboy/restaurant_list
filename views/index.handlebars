@@ -1,7 +1,7 @@
 <!-- search bar -->
-<div class="container search-bar">
+<div class="container search-bar d-flex">
   <div class="search-bar-outer">
-    <div class="search-bar-inner">
+    <div class="search-bar-inner ">
       <form action="/search">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
@@ -13,6 +13,20 @@
         </div>
       </form>
     </div>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="submit" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false" data-sort="hi">
+      Sort    
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li value="as">
+        <a class="dropdown-item" href="/name&1">A-Z</a>
+      </li>
+      <li><a class="dropdown-item" href="/name&-1">Z-A</a></li>
+      <li><a class="dropdown-item" href="/category&1">類別</a></li>
+      <li><a class="dropdown-item" href="/location&1">地區</a></li>
+    </ul>
   </div>
 </div>
 
