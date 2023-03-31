@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 
-
 // 載入自訂連接埠、主路由
 const port = 3000
 const routes = require('./routes')

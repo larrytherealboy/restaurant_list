@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
+// const alert = require('alert');
 
 // 瀏覽一家餐廳的詳細資訊
 router.get('/:restaurant_id', (req, res) => {
@@ -20,9 +21,17 @@ router.get('/', (req, res) => {
 
 // 新增一家餐廳
 router.post('/', (req, res) => {
+
+  // 如果表單內有任何一個資料沒填，將出現提示
+  if (Object.values(req.body).includes('')) {
+    return res.render('alert')
+  }
+
   return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+    })
 })
 
 
@@ -47,7 +56,10 @@ router.put('/:id', (req, res) => {
     .then(() => {
       res.redirect(`/restaurants/${id}`)
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      const errorMessage = error._message
+      res.render('alert', { errorMessage }) // 新增機制：如果修改的資料與該欄要求的type不符，跳回警告頁面，顯示伺服器給的提示
+    })
 })
 
 

@@ -14,7 +14,7 @@
                 餐廳名稱
               </label>
               <div class="col-md-8">
-                <input type="text" name="name" class="form-control" id="name" min="1">
+                <input type="text" name="name" class="form-control" id="name" minlength="1">
                 <small class="text-muted form-text">長度需大於一個字</small>
               </div>
             </div>
@@ -24,7 +24,7 @@
                 餐廳英文名稱
               </label>
               <div class="col-md-8">
-                <input type="text" name="name_en" class="form-control" id="name_en" min="1">
+                <input type="text" name="name_en" class="form-control" id="name_en" minlength="1">
                 <small class="text-muted form-text">長度需大於一個字</small>
               </div>
             </div>
@@ -34,7 +34,7 @@
                 類別
               </label>
               <div class="col-md-8">
-                <input type="text" name="category" class="form-control" id="category" min="1">
+                <input type="text" name="category" class="form-control" id="category" minlength="1">
                 <small class="text-muted form-text">長度需大於一個字</small>
               </div>
             </div>
@@ -44,7 +44,7 @@
                 圖片位址
               </label>
               <div class="col-md-8">
-                <input type="text" name="image" class="form-control" id="image" min="4">
+                <input type="text" name="image" class="form-control" id="image" minlength="1">
                 <small class="text-muted form-text">需要有完整位址</small>
               </div>
             </div>
@@ -54,7 +54,7 @@
                 地址
               </label>
               <div class="col-md-8">
-                <input type="text" name="location" class="form-control" id="location" min="1">
+                <input type="text" name="location" class="form-control" id="location" minlength="1">
                 <small class="text-muted form-text">長度需大於一個字</small>
               </div>
             </div>
@@ -64,7 +64,7 @@
                 電話
               </label>
               <div class="col-md-8">
-                <input type="text" name="phone" class="form-control" id="phone" min="1">
+                <input type="number" name="phone" class="form-control" id="phone" min="1">
                 <small class="text-muted form-text">長度需大於一個數字</small>
               </div>
             </div>
@@ -74,13 +74,13 @@
                 Google Map
               </label>
               <div class="col-md-8">
-                <input type="text" name="google_map" class="form-control" id="google_map" min="4">
+                <input type="text" name="google_map" class="form-control" id="google_map" minlength="1">
                 <small class="text-muted form-text">需要有完整網址</small>
               </div>
             </div>
 
             <div class="row g-2 mb-3">
-              <label for="rating" class="col-md-4 col-form-label">
+              <label for="number" class="col-md-4 col-form-label">
                 評分
               </label>
               <div class="col-md-8">
@@ -94,13 +94,10 @@
                 詳細敘述
               </label>
               <div class="col-md-8">
-                <input type="text" name="description" class="form-control" id="description" min="1">
+                <input type="text" name="description" class="form-control" id="description" minlength="1">
                 <small class="text-muted form-text">長度需大於一個字</small>
               </div>
             </div>
-
-
-
 
             <button class="btn btn-success" type="submit">新增</button>
           </form>
