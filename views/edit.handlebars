@@ -40,7 +40,7 @@
                 圖片位址
               </label>
               <div class="col-md-8">
-                <input type="text" name="image" class="form-control" id="image" placeholder="請輸入餐廳完整圖片位址.." value="{{ restaurant.image }}" required>
+                <input type="url" name="image" class="form-control" id="image" placeholder="請輸入餐廳完整圖片位址.." value="{{ restaurant.image }}" required>
               </div>
             </div>
 
@@ -58,7 +58,7 @@
                 電話
               </label>
               <div class="col-md-8">
-                <input type="text" name="phone" class="form-control" id="phone" placeholder="請輸入餐廳電話..." value="{{ restaurant.phone }}" required>
+                <input type="tel" name="phone" class="form-control" id="phone" placeholder="請輸入餐廳電話..." value="{{ restaurant.phone }}" required>
               </div>
             </div>
 
@@ -67,7 +67,7 @@
                 Google Map
               </label>
               <div class="col-md-8">
-                <input type="text" name="google_map" class="form-control" id="google_map" placeholder="請輸入餐廳完整google map網址..." value="{{ restaurant.google_map }}" required>
+                <input type="url" name="google_map" class="form-control" id="google_map" placeholder="請輸入餐廳完整google map網址..." value="{{ restaurant.google_map }}" required>
               </div>
             </div>
 
@@ -76,7 +76,7 @@
                 評分
               </label>
               <div class="col-md-8">
-                <input type="text" name="rating" class="form-control" id="rating" placeholder="請輸入餐廳評分..." value="{{ restaurant.rating }}" required>
+                <input type="number" name="rating" class="form-control" id="rating" placeholder="請輸入餐廳評分..." value="{{ restaurant.rating }}" step="0.1" required>
               </div>
             </div>
 

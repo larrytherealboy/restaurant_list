@@ -27,9 +27,7 @@ router.post('/', (req, res) => {
   return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => {
-      const errorMessage = error._message
       console.log(error)
-      res.render('alert', { errorMessage })
     })
 })
 
@@ -56,8 +54,7 @@ router.put('/:id', (req, res) => {
       res.redirect(`/restaurants/${id}`)
     })
     .catch(error => {
-      const errorMessage = error._message
-      res.render('alert', { errorMessage }) // 新增機制：如果修改的資料與該欄要求的type不符，跳回警告頁面，顯示伺服器給的提示
+      console.log(error)
     })
 })
 
