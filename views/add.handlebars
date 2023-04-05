@@ -1,4 +1,3 @@
-<!--  ./views/index.handlebars -->
 <div class="container py-5">
 
   <div class="row">
@@ -14,8 +13,7 @@
                 餐廳名稱
               </label>
               <div class="col-md-8">
-                <input type="text" name="name" class="form-control" id="name" minlength="1">
-                <small class="text-muted form-text">長度需大於一個字</small>
+                <input type="text" name="name" class="form-control" placeholder="請輸入餐廳名稱..." id="name" required>
               </div>
             </div>
 
@@ -24,8 +22,7 @@
                 餐廳英文名稱
               </label>
               <div class="col-md-8">
-                <input type="text" name="name_en" class="form-control" id="name_en" minlength="1">
-                <small class="text-muted form-text">長度需大於一個字</small>
+                <input type="text" name="name_en" class="form-control" placeholder="請輸入餐廳英文名稱..." id="name_en" required>
               </div>
             </div>
 
@@ -34,8 +31,7 @@
                 類別
               </label>
               <div class="col-md-8">
-                <input type="text" name="category" class="form-control" id="category" minlength="1">
-                <small class="text-muted form-text">長度需大於一個字</small>
+                <input type="text" name="category" class="form-control" placeholder="請輸入餐廳類別..." id="category" required>
               </div>
             </div>
 
@@ -44,8 +40,7 @@
                 圖片位址
               </label>
               <div class="col-md-8">
-                <input type="text" name="image" class="form-control" id="image" minlength="1">
-                <small class="text-muted form-text">需要有完整位址</small>
+                <input type="url" name="image" class="form-control" placeholder="請輸入餐廳完整圖片位址.." id="image" required>
               </div>
             </div>
 
@@ -54,8 +49,7 @@
                 地址
               </label>
               <div class="col-md-8">
-                <input type="text" name="location" class="form-control" id="location" minlength="1">
-                <small class="text-muted form-text">長度需大於一個字</small>
+                <input type="text" name="location" class="form-control" placeholder="請輸入餐廳地址..." id="location" required>
               </div>
             </div>
 
@@ -64,8 +58,7 @@
                 電話
               </label>
               <div class="col-md-8">
-                <input type="number" name="phone" class="form-control" id="phone" min="1">
-                <small class="text-muted form-text">長度需大於一個數字</small>
+                <input type="tel" name="phone" class="form-control" placeholder="請輸入餐廳電話..." id="phone" required>
               </div>
             </div>
 
@@ -74,8 +67,7 @@
                 Google Map
               </label>
               <div class="col-md-8">
-                <input type="text" name="google_map" class="form-control" id="google_map" minlength="1">
-                <small class="text-muted form-text">需要有完整網址</small>
+                <input type="url" name="google_map" class="form-control" placeholder="請輸入餐廳完整google map網址..." id="google_map" required>
               </div>
             </div>
 
@@ -84,8 +76,7 @@
                 評分
               </label>
               <div class="col-md-8">
-                <input type="text" name="rating" class="form-control" id="rating" min="1">
-                <small class="text-muted form-text">長度需大於一個數字</small>
+                <input type="text" name="rating" class="form-control" placeholder="請輸入餐廳評分..." id="rating" required>
               </div>
             </div>
 
@@ -94,8 +85,7 @@
                 詳細敘述
               </label>
               <div class="col-md-8">
-                <input type="text" name="description" class="form-control" id="description" minlength="1">
-                <small class="text-muted form-text">長度需大於一個字</small>
+                <input type="text" name="description" class="form-control" placeholder="請輸入餐廳敘述..." id="description" required>
               </div>
             </div>
 

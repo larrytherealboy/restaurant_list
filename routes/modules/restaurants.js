@@ -22,15 +22,14 @@ router.get('/', (req, res) => {
 // 新增一家餐廳
 router.post('/', (req, res) => {
 
-  // 如果表單內有任何一個資料沒填，將出現提示
-  if (Object.values(req.body).includes('')) {
-    return res.render('alert')
-  }
-
+  // 如果表單內有任何一個資料填寫錯誤，將出現提示
+  
   return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => {
+      const errorMessage = error._message
       console.log(error)
+      res.render('alert', { errorMessage })
     })
 })
 

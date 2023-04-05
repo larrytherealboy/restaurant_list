@@ -3,35 +3,35 @@ const Schema = mongoose.Schema
 
 const restaurantSchema = new Schema ({
   id: {
-    type: Number, 
+    type: Number
   },
   name: {
     type: String, 
     required: true
   },
   name_en: {
-    type: String, 
+    type: String 
   },
   category: {
-    type: String, 
+    type: String 
   },
   image: {
-    type: String, 
+    type: String 
   },
   location: {
-    type: String,
+    type: String
   },
   phone: {
-    type: Number,
+    type: String
   },
   google_map: {
-    type: String,
+    type: String
   },
   rating: {
-    type: Number,
+    type: Number
   },
   description: {
-    type: String,
+    type: String
   }
 })
 
