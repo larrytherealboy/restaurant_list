@@ -5,7 +5,8 @@ const Restaurant = require('../../models/restaurant')
 
 // 瀏覽全部所有餐廳，並按各級排序
 router.get('/', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     .sort({ _id: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
@@ -14,10 +15,11 @@ router.get('/', (req, res) => {
 
 // 按各級排序所有餐廳
 router.get('/:sortItem&:sort', (req, res) => {
+  const userId = req.user._id
   const sortItem = req.params.sortItem
   const sort = req.params.sort
 
-  Restaurant.find()
+  Restaurant.find({ userId })
     .lean()
     .sort([[sortItem, sort]])
     .then(restaurants => res.render('index', { restaurants }))
