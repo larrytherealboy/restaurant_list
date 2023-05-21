@@ -1,4 +1,5 @@
 # 我的餐廳清單
+<img width="1436" alt="image" src="https://github.com/larrytherealboy/restaurant_list/assets/84850988/08ac55c3-5b72-4033-8e60-dfc314079bee">
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/84850988/228586842-1010d86c-c68e-49e0-ad8e-1a62d6e5e7d6.png">
 <img width="1439" alt="image" src="https://user-images.githubusercontent.com/84850988/228586927-ab5a9f7e-2010-4e81-a030-c05ca9c11166.png">
 <img width="772" alt="image" src="https://user-images.githubusercontent.com/84850988/228587089-cddc7a09-0219-4046-80fc-e4dd8dee2529.png">
@@ -9,7 +10,9 @@
 * 使用者可以瀏覽全部所有餐廳
 * 使用者可以修改一家餐廳的資訊
 * 使用者可以刪除一家餐廳
-
+* 使用者可以註冊帳號，註冊的資料包括：名字、email、密碼、確認密碼。
+* 使用者也可以透過 Facebook Login 直接登入
+* 使用者必須登入才能使用餐廳清單
 
 ## 開始使用
 1. 安裝 node.js 與 npm
