@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 // 載入mongoose連線設定
 const routes = require('./routes')
