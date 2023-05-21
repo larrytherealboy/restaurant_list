@@ -10,14 +10,11 @@ router.get('/login', (req, res) => {
 })
 
 // 加入 middleware，驗證 request 登入狀態
-router.post('/login', (req, res) => {
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/users/login',
-    failureFlash: true
-  })
-  }
-)
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login',
+  failureFlash: true
+}))
 
 router.get('/register', (req, res) => {
   res.render('register')
@@ -53,7 +50,7 @@ router.post('/register', (req, res) => {
         confirmPassword
       })
     }
-    
+
     return bcrypt
       .genSalt(10) // 產生「鹽」，並設定複雜度係數為 10
       .then(salt => bcrypt.hash(password, salt)) // 為使用者密碼「加鹽」，產生雜湊值
