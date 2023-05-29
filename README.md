@@ -18,7 +18,9 @@
 1. 安裝 node.js 與 npm
 2. 將專案 clone 到本地
 3. 透過終端機進入資料夾，輸入：
+```
 npm install -y
+```
 4. 設定環境變數連線 MongoDB
 MONGODB_URI=mongodb+srv://<Your MongoDB Account>:<Your MongoDB Password>@cluster0.xxxx.xxxx.net/<Your MongoDB Table><?retryWrites=true&w=majority
 5. 輸入以下程式碼以啟動專案：
